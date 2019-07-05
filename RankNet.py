@@ -113,7 +113,7 @@ class RankNet(NNfuncs.NN):
                     print("step: {0}".format(step + 1))
                     print("NDCG@100 | train: {0}, test: {1}".format(train_ndcg, test_ndcg))
 
-    def fit(self, fit_X, fit_y, batchsize=100, n_iter=5000, n_units1=512, n_units2=128, tv_ratio=0.95, optimizerAlgorithm="Adam", savefigName="result.pdf", savemodelName="RankNet.model"):
+    def fit(self, fit_X, fit_y, batchsize=100, n_iter=5000, n_units1=512, n_units2=128, tv_ratio=0.95, optimizerAlgorithm="Adam", savefigName="resultRank.pdf", savemodelName="RankNet.model"):
         train_X, train_y, validate_X, validate_y = self.splitData(fit_X, fit_y, tv_ratio)
         print("The number of data, train:", len(train_X), "validate:", len(validate_X))
 
