@@ -1,2 +1,3 @@
-# listnetShiba
+# listnet and ranknet application
+
  
