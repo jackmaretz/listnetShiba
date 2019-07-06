@@ -98,7 +98,7 @@ class ListNet(NNfuncs.NN):
             self.loadModel(resumemodelName)
 
     # リストネットの誤差関数
-    def ndcg(self, y_true, y_score, k=10):
+    def ndcg(self, y_true, y_score, k=3):
         y_true = y_true.ravel()
         y_score = y_score.ravel()
         y_true_sorted = sorted(y_true, reverse=True)
@@ -152,7 +152,7 @@ class ListNet(NNfuncs.NN):
             print("NDCG@100 | train: {0}, test: {1}".format(train_ndcg, test_ndcg))
 
 
-    def fit(self, fit_X, fit_y, batchsize=100, n_epoch=200, n_units1=512, n_units2=128, tv_ratio=0.95, optimizerAlgorithm="Adam", savefigName="resultlist.pdf", savemodelName="ListNet.model"):
+    def fit(self, fit_X, fit_y, batchsize=1, n_epoch=10, n_units1=256, n_units2=64, tv_ratio=0.70, optimizerAlgorithm="Adam", savefigName="resultlist.pdf", savemodelName="ListNet.model"):
         train_X, train_y, validate_X, validate_y = self.splitData(fit_X, fit_y, tv_ratio)
         print("The number of data, train:", len(train_X), "validate:", len(validate_X))                # トレーニングとテストのデータ数を表示
 
